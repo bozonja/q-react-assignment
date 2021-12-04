@@ -6,80 +6,8 @@
   background-color: #333333;
 }
 
-.header {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: #626262;
-}
-
-.title-with-search {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.fake-logo {
-  color: white;
-}
-
-.search {
-  width: 50%;
-  margin-left: auto;
-}
-
-.navigation-item {
-  font-size: 1.25rem;
-}
-
-.navigation-item-link {
-  color: white;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.page-title {
-  color: white;
-}
-
-/* Posts */
-.posts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.post {
-  width: 25%;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: blanchedalmond;
-  cursor: pointer;
-}
-
-.post:hover {
-  background-color: #f3d5a9;
-}
-
-.post-title {
-  color: #333333;
-}
-
-/* Media queries */
-@media (max-width: 768px) {
-  .post {
-    width: 100%;
-  }
-}
-
 @media (max-width: 576px) {
   .wrapper {
     padding: 0.5rem;
-  }
-  .search {
-    width: 100%;
-    margin-left: 0;
   }
 }

@@ -1,0 +1,40 @@
+.header {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #626262;
+}
+
+.title-with-search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.fake-logo {
+  color: white;
+}
+
+.search {
+  width: 50%;
+  margin-left: auto;
+}
+
+.navigation-item {
+  font-size: 1.25rem;
+}
+
+.navigation-item-link {
+  color: white;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 576px) {
+  .search {
+    width: 100%;
+    margin-left: 0;
+  }
+}
