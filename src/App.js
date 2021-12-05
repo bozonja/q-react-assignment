@@ -1,5 +1,5 @@
 //components
-import Posts from "./components/Posts";
+import Posts from "./components/Posts/Posts";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 //styles

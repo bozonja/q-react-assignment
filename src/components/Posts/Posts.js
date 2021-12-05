@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 //styles
 import "./posts.css";
 //assets
-import trashIcon from "../assets/trash-icon.svg";
+import trashIcon from "assets/trash-icon.svg";
 
 const Posts = ({ helloMessage }) => {
   const fakeData = [
