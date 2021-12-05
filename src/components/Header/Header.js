@@ -1,9 +1,15 @@
+import { useEffect } from "react";
+
 //components
 import { Navigation } from "./Navigation";
 //styles
 import "./header.css";
 
-const Header = () => {
+const Header = ({ helloMessage }) => {
+  useEffect(() => {
+    console.log(`${helloMessage} Header`);
+  });
+
   return (
     <header className="header">
       <div className="title-with-search">
@@ -14,7 +20,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <Navigation />
+      <Navigation helloMessage={helloMessage} />
     </header>
   );
 };

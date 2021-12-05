@@ -4,6 +4,7 @@
   padding: 2rem;
   border-radius: 0.5rem;
   background-color: #333333;
+  color: white;
 }
 
 @media (max-width: 576px) {

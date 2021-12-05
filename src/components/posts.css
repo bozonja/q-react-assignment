@@ -9,11 +9,14 @@
 }
 
 .post {
+  display: flex;
+  flex-direction: column;
   width: 25%;
   padding: 1rem;
   border-radius: 0.5rem;
+
   background-color: blanchedalmond;
-  cursor: pointer;
+  color: #333333;
 }
 
 .post:hover {
@@ -21,7 +24,41 @@
 }
 
 .post-title {
+  margin-bottom: 1rem;
   color: #333333;
+  cursor: pointer;
+  word-break: break-all;
+}
+
+.post-title:hover {
+  text-decoration: underline;
+}
+
+.user-text {
+  margin-top: auto;
+}
+
+.delete-post {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  font-size: small;
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+.delete-post:hover {
+  text-decoration: none;
+}
+
+.delete-post-text {
+  padding-right: 0.5rem;
+}
+
+.trash-icon {
+  width: 0.75rem;
 }
 
 @media (max-width: 768px) {
