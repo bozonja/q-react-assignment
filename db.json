@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "user": "Zvone",
+      "id": 1,
+      "title": "Moj put na Kilimanjaro",
+      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    },
+    {
+      "user": "Zvone",
+      "id": 2,
+      "title": "Moj put na Kilimanjaro",
+      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    },
+    {
+      "user": "Zvone",
+      "id": 3,
+      "title": "Moj put na Kilimanjaro",
+      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    }
+  ]
+}

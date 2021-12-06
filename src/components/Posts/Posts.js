@@ -6,57 +6,70 @@ import "./posts.css";
 import trashIcon from "assets/trash-icon.svg";
 
 const Posts = ({ helloMessage }) => {
-  const fakeData = [
-    {
-      user: "Zvone",
-      id: 1,
-      title:
-        "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-      body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
-    },
-    {
-      user: "Josip",
-      id: 2,
-      title: "qui est esse",
-      body: "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla",
-    },
-    {
-      user: "Šime",
-      id: 3,
-      title: "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-      body: "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut",
-    },
-  ];
+  //consts
+  const noPostsMessage = "No posts to show...";
 
-  const noPostsMessage = "No posts to show..";
+  //hooks
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [data, setData] = useState(null);
 
-  const [posts, setPosts] = useState(fakeData);
+  //functions
+  const fetchData = () => {
+    fetch("http://localhost:4000/data")
+      .then((response) => {
+        if (!response.ok) {
+          throw Error("Something went wrong");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setData(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setIsLoading(false);
+      });
+  };
 
   const handleDelete = (id) => {
-    const newPost = posts.filter((post) => post.id !== id);
-    setPosts(newPost);
+    fetch("http://localhost:4000/data/" + id, {
+      method: "DELETE",
+    });
   };
 
   useEffect(() => {
     console.log(`${helloMessage} Posts`);
-  }, [helloMessage]);
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <main>
       <h2 className="page-title">Blog posts</h2>
       <section className="posts">
-        {posts.length === 0 && <span>{noPostsMessage}</span>}
-        {posts.map((post) => (
-          <article className="post" key={post.id}>
-            <h2 className="post-title">{post.title}</h2>
-            <p>{post.body}</p>
-            <p className="user-text">User: {post.user}</p>
-            <div className="delete-post" onClick={() => handleDelete(post.id)}>
-              <span className="delete-post-text">Delete blog</span>
-              <img src={trashIcon} className="trash-icon" alt="" />
-            </div>
-          </article>
-        ))}
+        {isLoading && <span>Loading...</span>}
+        {error && <span className="error-msg">{error}</span>}
+        {data && (
+          <>
+            {data.map((post) => (
+              <article className="post" key={post.id}>
+                <h2 className="post-title">{post.title}</h2>
+                <p>{post.body}</p>
+                <p className="user-text">User: {post.user}</p>
+                <div
+                  className="delete-post"
+                  onClick={() => handleDelete(post.id)}
+                >
+                  <span className="delete-post-text">Delete blog</span>
+                  <img src={trashIcon} className="trash-icon" alt="" />
+                </div>
+              </article>
+            ))}
+          </>
+        )}
+        {data && data.length === 0 && !error && <span>{noPostsMessage}</span>}
       </section>
     </main>
   );
