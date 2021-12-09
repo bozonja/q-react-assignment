@@ -1,18 +1,38 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 //components
-import Posts from "./components/Posts/Posts";
 import Header from "./components/Header/Header";
+import Posts from "./components/Posts/Posts";
+import SinglePost from "components/Posts/SinglePost";
+import CreatePost from "components/Posts/CreatePost";
 import Footer from "./components/Footer/Footer";
-//styles
-import "./App.css";
+import NotFound from "./components/NotFound";
 
 function App() {
   const helloMessage = "Hello from ";
 
   return (
     <section className="wrapper">
-      <Header helloMessage={helloMessage} />
-      <Posts helloMessage={helloMessage} />
-      <Footer helloMessage={helloMessage} />
+      <BrowserRouter>
+        <Header helloMessage={helloMessage} />
+        <Routes>
+          <Route
+            path="/"
+            exact
+            element={<Posts helloMessage={helloMessage} />}
+          />
+          <Route
+            path="/post/:id"
+            element={<SinglePost helloMessage={helloMessage} />}
+          />
+          <Route
+            path="/create"
+            element={<CreatePost helloMessage={helloMessage} />}
+          />
+          <Route path="*" element={<NotFound helloMessage={helloMessage} />} />
+        </Routes>
+        <Footer helloMessage={helloMessage} />
+      </BrowserRouter>
     </section>
   );
 }

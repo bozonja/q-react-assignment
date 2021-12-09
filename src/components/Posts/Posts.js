@@ -1,53 +1,42 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import PropTypes from "prop-types";
+import { Link, useNavigate } from "react-router-dom";
 
+//components
+import PageTitle from "components/PageTitle/PageTitle";
+import MainWrapper from "components/MainWrapper/Main";
 //styles
 import "./posts.css";
 //assets
 import trashIcon from "assets/trash-icon.svg";
+//hooks
+import useFetch from "custom-hooks/useFetch";
 
 const Posts = ({ helloMessage }) => {
   //consts
   const noPostsMessage = "No posts to show...";
 
   //hooks
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
-
-  //functions
-  const fetchData = () => {
-    fetch("http://localhost:4000/data")
-      .then((response) => {
-        if (!response.ok) {
-          throw Error("Something went wrong");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setData(data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        setError(error.message);
-        setIsLoading(false);
-      });
-  };
+  const navigate = useNavigate();
+  const { isLoading, error, data } = useFetch("http://localhost:4000/data");
 
   const handleDelete = (id) => {
     fetch("http://localhost:4000/data/" + id, {
       method: "DELETE",
+    }).then(() => {
+      alert("Post deleted");
+      navigate(0);
     });
   };
 
   useEffect(() => {
     console.log(`${helloMessage} Posts`);
-    fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <main>
-      <h2 className="page-title">Blog posts</h2>
+    <MainWrapper helloMessage={helloMessage}>
+      <PageTitle title="Home" helloMessage={helloMessage} />
       <section className="posts">
         {isLoading && <span>Loading...</span>}
         {error && <span className="error-msg">{error}</span>}
@@ -55,7 +44,9 @@ const Posts = ({ helloMessage }) => {
           <>
             {data.map((post) => (
               <article className="post" key={post.id}>
-                <h2 className="post-title">{post.title}</h2>
+                <Link to={`/post/${post.id}`}>
+                  <h2 className="post-title">{post.title}</h2>
+                </Link>
                 <p>{post.body}</p>
                 <p className="user-text">User: {post.user}</p>
                 <div
@@ -71,8 +62,12 @@ const Posts = ({ helloMessage }) => {
         )}
         {data && data.length === 0 && !error && <span>{noPostsMessage}</span>}
       </section>
-    </main>
+    </MainWrapper>
   );
 };
 
 export default Posts;
+
+Posts.propTypes = {
+  helloMessage: PropTypes.string,
+};

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 
 //components
 import { Navigation } from "./Navigation";
@@ -13,7 +14,7 @@ const Header = ({ helloMessage }) => {
   return (
     <header className="header">
       <div className="title-with-search">
-        <h1 className="fake-logo">Posts</h1>
+        <h1 className="logo-text">Posts app</h1>
         <div className="search">
           <div className="form-group">
             <input type="text" placeholder="Search posts..." />
@@ -26,3 +27,7 @@ const Header = ({ helloMessage }) => {
 };
 
 export default Header;
+
+Header.propTypes = {
+  helloMessage: PropTypes.string,
+};

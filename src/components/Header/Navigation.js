@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export const Navigation = ({ helloMessage }) => {
   useEffect(() => {
@@ -9,11 +11,15 @@ export const Navigation = ({ helloMessage }) => {
     <nav>
       <ul>
         <li className="navigation-item">
-          <a href="/" className="navigation-item-link">
+          <Link to="/" className="navigation-item-link">
             Home
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
   );
+};
+
+Navigation.propTypes = {
+  helloMessage: PropTypes.string,
 };

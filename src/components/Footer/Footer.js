@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 
 //styles
 import "./footer.css";
@@ -16,3 +17,7 @@ const Footer = ({ helloMessage }) => {
 };
 
 export default Footer;
+
+Footer.propTypes = {
+  helloMessage: PropTypes.string,
+};

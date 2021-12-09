@@ -17,10 +17,6 @@ code {
     monospace;
 }
 
-h1 {
-  font-size: 3rem;
-}
-
 h1,
 h2 {
   margin-top: 0;
@@ -58,4 +54,30 @@ main {
 
 p {
   margin-top: 0;
+}
+
+button {
+  padding: 0.75rem 0.5rem;
+  border-radius: 0.25rem;
+  border: none;
+
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  background-color: #a70404;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #bd0505;
+}
+
+.error-msg {
+  color: red;
+}
+
+.form-group {
+  margin-bottom: 1rem;
 }
