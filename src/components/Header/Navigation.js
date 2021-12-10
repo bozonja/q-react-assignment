@@ -5,7 +5,8 @@ import PropTypes from "prop-types";
 export const Navigation = ({ helloMessage }) => {
   useEffect(() => {
     console.log(`${helloMessage} Navigation`);
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <nav>

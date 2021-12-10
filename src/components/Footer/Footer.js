@@ -7,7 +7,8 @@ import "./footer.css";
 const Footer = ({ helloMessage }) => {
   useEffect(() => {
     console.log(`${helloMessage} Footer`);
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <footer className="footer">

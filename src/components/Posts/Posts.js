@@ -12,7 +12,7 @@ import trashIcon from "assets/trash-icon.svg";
 //hooks
 import useFetch from "custom-hooks/useFetch";
 
-const Posts = ({ helloMessage }) => {
+const Posts = ({ helloMessage, searchTerm }) => {
   //consts
   const noPostsMessage = "No posts to show...";
 
@@ -42,22 +42,37 @@ const Posts = ({ helloMessage }) => {
         {error && <span className="error-msg">{error}</span>}
         {data && (
           <>
-            {data.map((post) => (
-              <article className="post" key={post.id}>
-                <Link to={`/post/${post.id}`}>
-                  <h2 className="post-title">{post.title}</h2>
-                </Link>
-                <p>{post.body}</p>
-                <p className="user-text">User: {post.user}</p>
-                <div
-                  className="delete-post"
-                  onClick={() => handleDelete(post.id)}
-                >
-                  <span className="delete-post-text">Delete blog</span>
-                  <img src={trashIcon} className="trash-icon" alt="" />
-                </div>
-              </article>
-            ))}
+            {data
+              // eslint-disable-next-line array-callback-return
+              .filter((post) => {
+                if (searchTerm === "") {
+                  return post.body;
+                } else if (
+                  post.title.toLowerCase().includes(searchTerm.toLowerCase())
+                ) {
+                  return post.title;
+                } else if (
+                  post.body.toLowerCase().includes(searchTerm.toLowerCase())
+                ) {
+                  return post.body;
+                }
+              })
+              .map((post) => (
+                <article className="post" key={post.id}>
+                  <Link to={`/post/${post.id}`}>
+                    <h2 className="post-title">{post.title}</h2>
+                  </Link>
+                  <p>{post.body}</p>
+                  <p className="user-text">User: {post.user}</p>
+                  <div
+                    className="delete-post"
+                    onClick={() => handleDelete(post.id)}
+                  >
+                    <span className="delete-post-text">Delete blog</span>
+                    <img src={trashIcon} className="trash-icon" alt="" />
+                  </div>
+                </article>
+              ))}
           </>
         )}
         {data && data.length === 0 && !error && <span>{noPostsMessage}</span>}
@@ -70,4 +85,5 @@ export default Posts;
 
 Posts.propTypes = {
   helloMessage: PropTypes.string,
+  searchTerm: PropTypes.string,
 };

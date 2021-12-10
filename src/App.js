@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 //components
 import Header from "./components/Header/Header";
@@ -10,16 +11,27 @@ import NotFound from "./components/NotFound";
 
 function App() {
   const helloMessage = "Hello from ";
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <section className="wrapper">
       <BrowserRouter>
-        <Header helloMessage={helloMessage} />
+        <Header
+          helloMessage={helloMessage}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
         <Routes>
           <Route
             path="/"
             exact
-            element={<Posts helloMessage={helloMessage} />}
+            element={
+              <Posts
+                helloMessage={helloMessage}
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+              />
+            }
           />
           <Route
             path="/post/:id"

@@ -6,10 +6,11 @@ import { Navigation } from "./Navigation";
 //styles
 import "./header.css";
 
-const Header = ({ helloMessage }) => {
+const Header = ({ helloMessage, searchTerm, setSearchTerm }) => {
   useEffect(() => {
     console.log(`${helloMessage} Header`);
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <header className="header">
@@ -17,7 +18,12 @@ const Header = ({ helloMessage }) => {
         <h1 className="logo-text">Posts app</h1>
         <div className="search">
           <div className="form-group">
-            <input type="text" placeholder="Search posts..." />
+            <input
+              type="text"
+              placeholder="Search posts..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </div>
         </div>
       </div>
@@ -30,4 +36,6 @@ export default Header;
 
 Header.propTypes = {
   helloMessage: PropTypes.string,
+  searchTerm: PropTypes.string,
+  setSearchTerm: PropTypes.func,
 };
