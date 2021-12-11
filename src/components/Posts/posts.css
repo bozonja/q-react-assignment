@@ -32,6 +32,7 @@
   color: #333333;
   cursor: pointer;
   word-break: break-word;
+  pointer-events: none;
 }
 
 .post-title:hover {
