@@ -43,9 +43,15 @@ const SinglePost = ({ helloMessage }) => {
           <article className="single-post">
             <p>{data.body}</p>
             <p className="user-text">User: {data.user}</p>
-            <div className="delete-post" onClick={() => handleDelete(data.id)}>
-              <span className="delete-post-text">Delete blog</span>
-              <img src={trashIcon} className="trash-icon" alt="" />
+
+            <div className="post-footer">
+              <div
+                className="post-footer-link"
+                onClick={() => handleDelete(data.id)}
+              >
+                <span className="post-footer-link-text">Delete post</span>
+                <img src={trashIcon} className="trash-icon" alt="" />
+              </div>
             </div>
           </article>
         </>

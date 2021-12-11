@@ -8,6 +8,7 @@ import SinglePost from "components/Posts/SinglePost";
 import CreatePost from "components/Posts/CreatePost";
 import Footer from "./components/Footer/Footer";
 import NotFound from "./components/NotFound";
+import EditPost from "./components/Posts/EditPost";
 
 function App() {
   const helloMessage = "Hello from ";
@@ -40,6 +41,10 @@ function App() {
           <Route
             path="/create"
             element={<CreatePost helloMessage={helloMessage} />}
+          />
+          <Route
+            path="/edit/:id"
+            element={<EditPost helloMessage={helloMessage} />}
           />
           <Route path="*" element={<NotFound helloMessage={helloMessage} />} />
         </Routes>

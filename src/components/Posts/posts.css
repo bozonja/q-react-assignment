@@ -43,22 +43,27 @@
   margin-top: auto;
 }
 
-.delete-post {
+.post-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 
   font-size: small;
   text-decoration: underline;
+}
+
+.post-footer-link {
+  display: flex;
+  align-items: center;
 
   cursor: pointer;
 }
 
-.delete-post:hover {
+.post-footer-link:hover {
   text-decoration: none;
 }
 
-.delete-post-text {
+.post-footer-link-text {
   padding-right: 0.5rem;
 }
 

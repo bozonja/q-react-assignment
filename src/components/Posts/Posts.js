@@ -8,6 +8,7 @@ import MainWrapper from "components/MainWrapper/Main";
 //styles
 import "./posts.css";
 //assets
+import editIcon from "assets/edit-icon.svg";
 import trashIcon from "assets/trash-icon.svg";
 //hooks
 import useFetch from "custom-hooks/useFetch";
@@ -64,12 +65,20 @@ const Posts = ({ helloMessage, searchTerm }) => {
                   </Link>
                   <p>{post.body}</p>
                   <p className="user-text">User: {post.user}</p>
-                  <div
-                    className="delete-post"
-                    onClick={() => handleDelete(post.id)}
-                  >
-                    <span className="delete-post-text">Delete blog</span>
-                    <img src={trashIcon} className="trash-icon" alt="" />
+
+                  <div className="post-footer">
+                    <Link to={`/edit/${post.id}`}>
+                      <span className="post-footer-link-text">Edit post</span>
+                      <img src={editIcon} className="trash-icon" alt="" />
+                    </Link>
+
+                    <div
+                      className="post-footer-link"
+                      onClick={() => handleDelete(post.id)}
+                    >
+                      <span className="post-footer-link-text">Delete post</span>
+                      <img src={trashIcon} className="trash-icon" alt="" />
+                    </div>
                   </div>
                 </article>
               ))}
