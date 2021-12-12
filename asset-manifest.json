@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/bozonja/q-react-assignment/static/css/main.99287a6c.chunk.css",
-    "main.js": "/bozonja/q-react-assignment/static/js/main.f6c970ff.chunk.js",
-    "main.js.map": "/bozonja/q-react-assignment/static/js/main.f6c970ff.chunk.js.map",
-    "runtime-main.js": "/bozonja/q-react-assignment/static/js/runtime-main.14a6bb4e.js",
-    "runtime-main.js.map": "/bozonja/q-react-assignment/static/js/runtime-main.14a6bb4e.js.map",
-    "static/js/2.9aea245c.chunk.js": "/bozonja/q-react-assignment/static/js/2.9aea245c.chunk.js",
-    "static/js/2.9aea245c.chunk.js.map": "/bozonja/q-react-assignment/static/js/2.9aea245c.chunk.js.map",
-    "index.html": "/bozonja/q-react-assignment/index.html",
-    "static/css/main.99287a6c.chunk.css.map": "/bozonja/q-react-assignment/static/css/main.99287a6c.chunk.css.map",
-    "static/js/2.9aea245c.chunk.js.LICENSE.txt": "/bozonja/q-react-assignment/static/js/2.9aea245c.chunk.js.LICENSE.txt",
-    "static/media/edit-icon.4ffe848a.svg": "/bozonja/q-react-assignment/static/media/edit-icon.4ffe848a.svg",
-    "static/media/trash-icon.96ae42b3.svg": "/bozonja/q-react-assignment/static/media/trash-icon.96ae42b3.svg"
+    "main.css": "/q-react-assignment/static/css/main.99287a6c.chunk.css",
+    "main.js": "/q-react-assignment/static/js/main.f6c970ff.chunk.js",
+    "main.js.map": "/q-react-assignment/static/js/main.f6c970ff.chunk.js.map",
+    "runtime-main.js": "/q-react-assignment/static/js/runtime-main.f9774079.js",
+    "runtime-main.js.map": "/q-react-assignment/static/js/runtime-main.f9774079.js.map",
+    "static/js/2.9aea245c.chunk.js": "/q-react-assignment/static/js/2.9aea245c.chunk.js",
+    "static/js/2.9aea245c.chunk.js.map": "/q-react-assignment/static/js/2.9aea245c.chunk.js.map",
+    "index.html": "/q-react-assignment/index.html",
+    "static/css/main.99287a6c.chunk.css.map": "/q-react-assignment/static/css/main.99287a6c.chunk.css.map",
+    "static/js/2.9aea245c.chunk.js.LICENSE.txt": "/q-react-assignment/static/js/2.9aea245c.chunk.js.LICENSE.txt",
+    "static/media/edit-icon.4ffe848a.svg": "/q-react-assignment/static/media/edit-icon.4ffe848a.svg",
+    "static/media/trash-icon.96ae42b3.svg": "/q-react-assignment/static/media/trash-icon.96ae42b3.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.14a6bb4e.js",
+    "static/js/runtime-main.f9774079.js",
     "static/js/2.9aea245c.chunk.js",
     "static/css/main.99287a6c.chunk.css",
     "static/js/main.f6c970ff.chunk.js"
