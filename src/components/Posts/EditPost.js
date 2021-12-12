@@ -18,7 +18,6 @@ const EditPost = ({ helloMessage }) => {
   const { data, isLoading, error } = useFetch(
     "http://localhost:4000/data/" + id
   );
-
   const navigate = useNavigate();
 
   const [title, setTitle] = useState("");
@@ -43,46 +42,44 @@ const EditPost = ({ helloMessage }) => {
 
   return (
     <>
-      <PageTitle title="Edit post" helloMessage={helloMessage} />
-
+      {/* TODO: show default values when current post is opened */}
       {isLoading && <span>Loading...</span>}
       {error && <span className="error-msg">{error}</span>}
       {data && (
-        <form onSubmit={handleChange}>
-          <div className="form-group">
-            <label>Title</label>
-            <input
-              type="text"
-              placeholder="enter title"
-              required
-              // defaultValue={data.title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
+        <>
+          <PageTitle title={`Edit ${data.title}`} helloMessage={helloMessage} />
+          <form onSubmit={handleChange}>
+            <div className="form-group">
+              <label>Title</label>
+              <input
+                type="text"
+                placeholder="edit title"
+                required
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
 
-          <div className="form-group">
-            <label>Text</label>
-            <textarea
-              required
-              // defaultValue={data.body}
-              onChange={(e) => setBody(e.target.value)}
-            />
-          </div>
+            <div className="form-group">
+              <label>Text</label>
+              <textarea
+                required
+                onChange={(e) => setBody(e.target.value)}
+                placeholder="edit description"
+              />
+            </div>
 
-          <div className="form-group">
-            <label>Written by:</label>
-            <select
-              // defaultValue={data.user}
-              onChange={(e) => setUser(e.target.value)}
-            >
-              <option value="Zvone">Zvone</option>
-              <option value="Petar">Petar</option>
-              <option value="Nina">Nina</option>
-            </select>
-          </div>
+            <div className="form-group">
+              <label>Written by:</label>
+              <select onChange={(e) => setUser(e.target.value)}>
+                <option value="Zvone">Zvone</option>
+                <option value="Petar">Petar</option>
+                <option value="Nina">Nina</option>
+              </select>
+            </div>
 
-          <button type="submit"> Change</button>
-        </form>
+            <button type="submit"> Change</button>
+          </form>
+        </>
       )}
     </>
   );

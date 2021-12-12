@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 //components
 import PageTitle from "components/PageTitle/PageTitle";
@@ -69,7 +69,7 @@ const Posts = ({ helloMessage, searchTerm }) => {
                   <div className="post-footer">
                     <Link to={`/edit/${post.id}`}>
                       <span className="post-footer-link-text">Edit post</span>
-                      <img src={editIcon} className="trash-icon" alt="" />
+                      <img src={editIcon} className="icon" alt="" />
                     </Link>
 
                     <div
@@ -77,7 +77,7 @@ const Posts = ({ helloMessage, searchTerm }) => {
                       onClick={() => handleDelete(post.id)}
                     >
                       <span className="post-footer-link-text">Delete post</span>
-                      <img src={trashIcon} className="trash-icon" alt="" />
+                      <img src={trashIcon} className="icon" alt="" />
                     </div>
                   </div>
                 </article>

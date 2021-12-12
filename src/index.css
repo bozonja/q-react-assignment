@@ -32,9 +32,9 @@ li {
 }
 
 a {
+  color: #333333;
   text-decoration: underline;
   cursor: pointer;
-  color: #333333;
 }
 
 a:hover,
@@ -105,4 +105,19 @@ form {
 
 .form-group {
   margin-bottom: 1rem;
+}
+
+.app-wrapper {
+  max-width: 1024px;
+  margin: 2rem auto 0;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: #333333;
+  color: white;
+}
+
+@media (max-width: 576px) {
+  .app-wrapper {
+    padding: 0.5rem;
+  }
 }

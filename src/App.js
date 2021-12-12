@@ -7,15 +7,15 @@ import Posts from "./components/Posts/Posts";
 import SinglePost from "components/Posts/SinglePost";
 import CreatePost from "components/Posts/CreatePost";
 import Footer from "./components/Footer/Footer";
-import NotFound from "./components/NotFound";
 import EditPost from "./components/Posts/EditPost";
+import NotFound from "./components/NotFound";
 
 function App() {
   const helloMessage = "Hello from ";
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <section className="wrapper">
+    <div className="app-wrapper">
       <BrowserRouter>
         <Header
           helloMessage={helloMessage}
@@ -50,7 +50,7 @@ function App() {
         </Routes>
         <Footer helloMessage={helloMessage} />
       </BrowserRouter>
-    </section>
+    </div>
   );
 }
 

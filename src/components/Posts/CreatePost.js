@@ -14,7 +14,6 @@ const CreatePost = ({ helloMessage }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [user, setUser] = useState("Zvone");
-
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -54,6 +53,7 @@ const CreatePost = ({ helloMessage }) => {
             required
             value={body}
             onChange={(e) => setBody(e.target.value)}
+            placeholder="add description"
           />
         </div>
 

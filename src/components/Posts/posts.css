@@ -11,16 +11,15 @@
   padding: 1rem;
   border-radius: 0.5rem;
 
-  background-color: blanchedalmond;
   color: #333333;
+  background-color: blanchedalmond;
 }
 
 .single-post {
   padding: 1rem;
   border-radius: 0.5rem;
-
-  background-color: blanchedalmond;
   color: #333333;
+  background-color: blanchedalmond;
 }
 
 .post:hover {
@@ -67,7 +66,7 @@
   padding-right: 0.5rem;
 }
 
-.trash-icon {
+.icon {
   width: 0.75rem;
 }
 

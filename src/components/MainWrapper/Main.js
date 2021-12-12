@@ -9,7 +9,7 @@ const MainWrapper = ({ children, helloMessage }) => {
     console.log(`${helloMessage} MainWrapper`);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return <main>{children}</main>;
+  return <main className="main-wrapper">{children}</main>;
 };
 
 export default MainWrapper;

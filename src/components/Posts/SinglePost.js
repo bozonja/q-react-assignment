@@ -50,7 +50,7 @@ const SinglePost = ({ helloMessage }) => {
                 onClick={() => handleDelete(data.id)}
               >
                 <span className="post-footer-link-text">Delete post</span>
-                <img src={trashIcon} className="trash-icon" alt="" />
+                <img src={trashIcon} className="icon" alt="" />
               </div>
             </div>
           </article>
