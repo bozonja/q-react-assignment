@@ -4,7 +4,7 @@
 
 1. To run app in development mode use "npm start"
 2. Run json server (npx json-server --watch db.json --port 4000)
-3. To check app online go here: (https://www.app.com)
+3. To check app online go here: (https://bozonja.github.io/q-react-assignment)
 
 # approximate time needed to finish the assignment:
 
