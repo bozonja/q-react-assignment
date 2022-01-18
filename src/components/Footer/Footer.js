@@ -1,14 +1,10 @@
-import { useEffect } from "react";
-import PropTypes from "prop-types";
-
+//custom hooks
+import useHelloFromComponent from "custom-hooks/useHelloFromComponent";
 //styles
 import "./footer.css";
 
-const Footer = ({ helloMessage }) => {
-  useEffect(() => {
-    console.log(`${helloMessage} Footer`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+const Footer = () => {
+  useHelloFromComponent("Footer");
 
   return (
     <footer className="footer">
@@ -18,7 +14,3 @@ const Footer = ({ helloMessage }) => {
 };
 
 export default Footer;
-
-Footer.propTypes = {
-  helloMessage: PropTypes.string,
-};

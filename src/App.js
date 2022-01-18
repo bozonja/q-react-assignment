@@ -11,44 +11,26 @@ import EditPost from "./components/Posts/EditPost";
 import NotFound from "./components/NotFound";
 
 function App() {
-  const helloMessage = "Hello from ";
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <div className="app-wrapper">
       <BrowserRouter>
-        <Header
-          helloMessage={helloMessage}
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-        />
+        <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <Routes>
           <Route
             path="/"
             exact
             element={
-              <Posts
-                helloMessage={helloMessage}
-                searchTerm={searchTerm}
-                setSearchTerm={setSearchTerm}
-              />
+              <Posts searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             }
           />
-          <Route
-            path="/post/:id"
-            element={<SinglePost helloMessage={helloMessage} />}
-          />
-          <Route
-            path="/create"
-            element={<CreatePost helloMessage={helloMessage} />}
-          />
-          <Route
-            path="/edit/:id"
-            element={<EditPost helloMessage={helloMessage} />}
-          />
-          <Route path="*" element={<NotFound helloMessage={helloMessage} />} />
+          <Route path="/post/:id" element={<SinglePost />} />
+          <Route path="/create" element={<CreatePost />} />
+          <Route path="/edit/:id" element={<EditPost />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer helloMessage={helloMessage} />
+        <Footer />
       </BrowserRouter>
     </div>
   );

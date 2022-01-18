@@ -1,11 +1,8 @@
-import { useEffect } from "react";
-import PropTypes from "prop-types";
+//custom hooks
+import useHelloFromComponent from "custom-hooks/useHelloFromComponent";
 
-const NotFound = ({ helloMessage }) => {
-  useEffect(() => {
-    console.log(`${helloMessage} NotFound`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+const NotFound = () => {
+  useHelloFromComponent("Not found");
 
   return (
     <>
@@ -15,7 +12,3 @@ const NotFound = ({ helloMessage }) => {
 };
 
 export default NotFound;
-
-NotFound.propTypes = {
-  helloMessage: PropTypes.string.isRequired,
-};

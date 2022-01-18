@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -12,8 +11,9 @@ import editIcon from "assets/edit-icon.svg";
 import trashIcon from "assets/trash-icon.svg";
 //hooks
 import useFetch from "custom-hooks/useFetch";
+import useHelloFromComponent from "custom-hooks/useHelloFromComponent";
 
-const Posts = ({ helloMessage, searchTerm }) => {
+const Posts = ({ searchTerm }) => {
   //consts
   const noPostsMessage = "No posts to show...";
 
@@ -30,14 +30,11 @@ const Posts = ({ helloMessage, searchTerm }) => {
     });
   };
 
-  useEffect(() => {
-    console.log(`${helloMessage} Posts`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  useHelloFromComponent("Posts");
 
   return (
-    <MainWrapper helloMessage={helloMessage}>
-      <PageTitle title="Home" helloMessage={helloMessage} />
+    <MainWrapper>
+      <PageTitle title="Home" />
       <section className="posts">
         {isLoading && <span>Loading...</span>}
         {error && <span className="error-msg">{error}</span>}
@@ -93,6 +90,5 @@ const Posts = ({ helloMessage, searchTerm }) => {
 export default Posts;
 
 Posts.propTypes = {
-  helloMessage: PropTypes.string,
   searchTerm: PropTypes.string,
 };

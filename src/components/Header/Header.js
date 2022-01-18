@@ -1,17 +1,15 @@
-import { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 
+//custom hooks
+import useHelloFromComponent from "custom-hooks/useHelloFromComponent";
 //components
 import { Navigation } from "./Navigation";
 //styles
 import "./header.css";
 
-const Header = ({ helloMessage, searchTerm, setSearchTerm }) => {
-  useEffect(() => {
-    console.log(`${helloMessage} Header`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+const Header = ({ searchTerm, setSearchTerm }) => {
+  useHelloFromComponent("Header");
 
   const location = useLocation();
 
@@ -32,7 +30,7 @@ const Header = ({ helloMessage, searchTerm, setSearchTerm }) => {
           </div>
         )}
       </div>
-      <Navigation helloMessage={helloMessage} />
+      <Navigation />
     </header>
   );
 };
@@ -40,7 +38,6 @@ const Header = ({ helloMessage, searchTerm, setSearchTerm }) => {
 export default Header;
 
 Header.propTypes = {
-  helloMessage: PropTypes.string,
   searchTerm: PropTypes.string,
   setSearchTerm: PropTypes.func,
 };

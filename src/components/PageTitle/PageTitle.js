@@ -1,17 +1,15 @@
-import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 //styles
 import "./page-title.css";
+//custom hooks
+import useHelloFromComponent from "custom-hooks/useHelloFromComponent";
 
-const PageTitle = ({ helloMessage, title }) => {
+const PageTitle = ({ title }) => {
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    console.log(`${helloMessage} PageTitle`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  useHelloFromComponent("PageTitle");
 
   return (
     <div className="page-title-container">
@@ -28,6 +26,5 @@ const PageTitle = ({ helloMessage, title }) => {
 export default PageTitle;
 
 PageTitle.propTypes = {
-  helloMessage: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };

@@ -1,15 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import { useState } from "react";
 
 //components
 import PageTitle from "components/PageTitle/PageTitle";
+//custom hooks
+import useHelloFromComponent from "custom-hooks/useHelloFromComponent";
 
-const CreatePost = ({ helloMessage }) => {
-  useEffect(() => {
-    console.log(`${helloMessage} Create post`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+const CreatePost = () => {
+  useHelloFromComponent("Create post");
 
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -34,7 +32,7 @@ const CreatePost = ({ helloMessage }) => {
 
   return (
     <>
-      <PageTitle title="Create post" helloMessage={helloMessage} />
+      <PageTitle title="Create post" />
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Title</label>
@@ -73,7 +71,3 @@ const CreatePost = ({ helloMessage }) => {
 };
 
 export default CreatePost;
-
-CreatePost.propTypes = {
-  helloMessage: PropTypes.string.isRequired,
-};

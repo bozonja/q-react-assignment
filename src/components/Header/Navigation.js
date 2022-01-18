@@ -1,12 +1,10 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 
-export const Navigation = ({ helloMessage }) => {
-  useEffect(() => {
-    console.log(`${helloMessage} Navigation`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+//custom hooks
+import useHelloFromComponent from "custom-hooks/useHelloFromComponent";
+
+export const Navigation = () => {
+  useHelloFromComponent("Navigation");
 
   return (
     <nav>
@@ -19,8 +17,4 @@ export const Navigation = ({ helloMessage }) => {
       </ul>
     </nav>
   );
-};
-
-Navigation.propTypes = {
-  helloMessage: PropTypes.string,
 };

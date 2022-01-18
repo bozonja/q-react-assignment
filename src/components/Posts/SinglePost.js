@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
 
 //components
 import PageTitle from "components/PageTitle/PageTitle";
@@ -11,8 +9,9 @@ import "./posts.css";
 import trashIcon from "assets/trash-icon.svg";
 //hooks
 import useFetch from "custom-hooks/useFetch";
+import useHelloFromComponent from "custom-hooks/useHelloFromComponent";
 
-const SinglePost = ({ helloMessage }) => {
+const SinglePost = () => {
   const { id } = useParams();
   const { data, isLoading, error } = useFetch(
     "http://localhost:4000/data/" + id
@@ -28,18 +27,15 @@ const SinglePost = ({ helloMessage }) => {
     });
   };
 
-  useEffect(() => {
-    console.log(`${helloMessage} Single post`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  useHelloFromComponent("Single post");
 
   return (
-    <MainWrapper helloMessage={helloMessage}>
+    <MainWrapper>
       {isLoading && "Loading..."}
       {error && <span className="error-msg">{error}</span>}
       {data && (
         <>
-          <PageTitle title={data.title} helloMessage={helloMessage} />
+          <PageTitle title={data.title} />
           <article className="single-post">
             <p>{data.body}</p>
             <p className="user-text">User: {data.user}</p>
@@ -61,7 +57,3 @@ const SinglePost = ({ helloMessage }) => {
 };
 
 export default SinglePost;
-
-SinglePost.propTypes = {
-  helloMessage: PropTypes.string,
-};

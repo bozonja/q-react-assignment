@@ -1,17 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import { useState } from "react";
 
 //custom hook
 import useFetch from "custom-hooks/useFetch";
+import useHelloFromComponent from "custom-hooks/useHelloFromComponent";
 //components
 import PageTitle from "components/PageTitle/PageTitle";
 
-const EditPost = ({ helloMessage }) => {
-  useEffect(() => {
-    console.log(`${helloMessage} Edit post`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+const EditPost = () => {
+  useHelloFromComponent("Edit post");
 
   //hooks
   const { id } = useParams();
@@ -47,7 +44,7 @@ const EditPost = ({ helloMessage }) => {
       {error && <span className="error-msg">{error}</span>}
       {data && (
         <>
-          <PageTitle title={`Edit ${data.title}`} helloMessage={helloMessage} />
+          <PageTitle title={`Edit ${data.title}`} />
           <form onSubmit={handleChange}>
             <div className="form-group">
               <label>Title</label>
@@ -86,7 +83,3 @@ const EditPost = ({ helloMessage }) => {
 };
 
 export default EditPost;
-
-EditPost.propTypes = {
-  helloMessage: PropTypes.string.isRequired,
-};
